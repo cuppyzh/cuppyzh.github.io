@@ -1,34 +1,84 @@
 <!DOCTYPE html>
-<!--[if IE 8 ]><html class="no-js oldie ie8" lang="en"> <![endif]-->
-<!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+<html lang="en">
 <head>
-	<title>Cuppyzh | Yusuf Anugrah Putra Aditama</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuppyzh | Yusuf Anugrah Putra Aditama</title>
+	<link rel="shortcut icon" href="/icon.gif">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        #mainFrame {
+            width: 100%;
+            height: 100vh;
+            border: none;
+            display: block;
+        }
+    </style>
 </head>
+<body>
+    <iframe 
+        id="mainFrame" 
+        src="https://bento.me/cuppyzh" 
+        title="Content"
+        frameborder="0"
+        scrolling="yes"
+        allowfullscreen>
+        <!-- Fallback content for browsers that don't support iframes -->
+        <script>
+            // Redirect if iframe is not supported
+            window.location.href = "https://bento.me/cuppyzh";
+        </script>
+        <noscript>
+            <meta http-equiv="refresh" content="0; url=https://bento.me/cuppyzh">
+        </noscript>
+        <p>Your browser does not support iframes. <a href="https://bento.me/cuppyzh">Click here to continue</a>.</p>
+    </iframe>
 
-<style>
-.container {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
-}
-
-/* Then style the iframe to fit in the container div with full height and width */
-.responsive-iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-}
-</style>
-
-<body id="top">
-	<p>Loading</p>
-	<p>Testing</p>
+    <script>
+        // Check if iframe is supported and loaded properly
+        const iframe = document.getElementById('mainFrame');
+        
+        // Fallback check for very old browsers
+        if (!iframe.contentWindow) {
+            window.location.href = "https://bento.me/cuppyzh";
+        }
+        
+        // Optional: Update page title based on iframe content (if same-origin)
+        iframe.addEventListener('load', function() {
+            try {
+                // This will only work if the iframe content is from the same origin
+                const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                if (iframeDoc && iframeDoc.title) {
+                    document.title = iframeDoc.title;
+                }
+            } catch (e) {
+                // Cross-origin restrictions prevent title access
+                console.log('Cannot access iframe title due to cross-origin restrictions');
+            }
+        });
+        
+        // Additional fallback: redirect if iframe fails to load after timeout
+        setTimeout(function() {
+            try {
+                if (!iframe.contentWindow || !iframe.contentWindow.location) {
+                    throw new Error('iframe not accessible');
+                }
+            } catch (e) {
+                // If we can't access the iframe after 5 seconds, redirect
+                console.log('iframe appears to be blocked, redirecting...');
+                window.location.href = "https://bento.me/cuppyzh";
+            }
+        }, 5000);
+    </script>
 </body>
-
 </html>
