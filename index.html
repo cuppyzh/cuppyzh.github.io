@@ -23,13 +23,13 @@
     }
 
     .container {
-      padding: clamp(1.25rem, 4vw, 2.5rem);
+      /* padding: clamp(1.25rem, 4vw, 2.5rem); */
       display: flex;
       width: 100%;
     }
 
     h1 {
-      font-size: clamp(2.5rem, 8vw, 5rem);
+      font-size: clamp(2rem, 8vw, 5rem);
       font-weight: 700;
       letter-spacing: -0.04em;
       line-height: 1.05;
@@ -43,14 +43,21 @@
     p {
       margin-top: 0.75rem;
       color: #5c6f60;
-      font-size: 0.95rem;
+      font-size: clamp(0.8rem, 8vw, 0.95rem);
     }
 
     .title {
-      font-size: clamp(1rem, 8vw, 2rem);
+      font-size: clamp(1rem, 6vw, 2rem);
+    }
+
+    .main {
+      padding: clamp(1.25rem, 4vw, 2.5rem);
+      width: 60%;
     }
     
     .footer {
+      padding-right: clamp(1.25rem, 4vw, 2.5rem);
+      padding-bottom: clamp(1.25rem, 4vw, 2.5rem);
       align-self: end;
       margin-left: auto;
     }
@@ -59,7 +66,7 @@
 
 <body>
   <div class="container">
-    <div>
+    <div class="main">
       <h1 class="title">cuppyzh.dev</h1>
       <h1><em>coming soon</em></h1>
       <p>something quiet is being built here.</p>
