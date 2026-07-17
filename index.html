@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>cuppyzh — soon</title>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet" />
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       min-height: 100dvh;
       background: #f0f2ec;
@@ -15,35 +21,53 @@
       display: flex;
       align-items: flex-end;
     }
-    .corner {
+
+    .container {
       padding: clamp(1.25rem, 4vw, 2.5rem);
+      display: flex;
+      width: 100%;
     }
+
     h1 {
       font-size: clamp(2.5rem, 8vw, 5rem);
       font-weight: 700;
       letter-spacing: -0.04em;
       line-height: 1.05;
     }
+
     h1 em {
       font-style: normal;
       color: #3e7c5b;
     }
+
     p {
       margin-top: 0.75rem;
       color: #5c6f60;
       font-size: 0.95rem;
     }
-	
-	.title {
+
+    .title {
       font-size: clamp(1rem, 8vw, 2rem);
-	}
+    }
+    
+    .footer {
+      align-self: end;
+      margin-left: auto;
+    }
   </style>
 </head>
+
 <body>
-  <div class="corner">
-    <h1 class="title">cuppyzh.dev</h1>
-	<h1><em>coming soon</em></h1>
-    <p>something quiet is being built here.</p>
+  <div class="container">
+    <div>
+      <h1 class="title">cuppyzh.dev</h1>
+      <h1><em>coming soon</em></h1>
+      <p>something quiet is being built here.</p>
+    </div>
+    <div class="footer">
+      <p>&copy; 2026 cuppyzh</p>
+    </div>
   </div>
 </body>
+
 </html>
