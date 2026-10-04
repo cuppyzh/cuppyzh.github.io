@@ -1,81 +1,91 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>cuppyzh — soon</title>
-  <link rel="icon" type="image/gif" href="icon-v2.gif" />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet" />
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>cuppyzh.dev — Coming soon</title>
+  <meta name="description" content="cuppyzh.dev is coming soon. Something new is taking shape here.">
+  <meta name="theme-color" content="#1C1C1C">
 
-    body {
-      min-height: 100dvh;
-      background: #f0f2ec;
-      color: #26332a;
-      font-family: "Space Grotesk", system-ui, sans-serif;
-      display: flex;
-      align-items: flex-end;
-    }
+  <!-- Open Graph -->
+  <meta property="og:title" content="cuppyzh.dev — Coming soon">
+  <meta property="og:description" content="Something new is taking shape here. Please check back soon.">
+  <meta property="og:image" content="assets/icons/shu-icon-1024.png">
+  <meta property="og:type" content="website">
 
-    .container {
-      /* padding: clamp(1.25rem, 4vw, 2.5rem); */
-      display: flex;
-      width: 100%;
-    }
+  <!-- Icons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/shu-icon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/shu-icon-180.png">
 
-    h1 {
-      font-size: clamp(2rem, 8vw, 5rem);
-      font-weight: 700;
-      letter-spacing: -0.04em;
-      line-height: 1.05;
-    }
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
 
-    h1 em {
-      font-style: normal;
-      color: #3e7c5b;
-    }
-
-    p {
-      margin-top: 0.75rem;
-      color: #5c6f60;
-      font-size: clamp(0.8rem, 8vw, 0.95rem);
-    }
-
-    .title {
-      font-size: clamp(1rem, 6vw, 2rem);
-    }
-
-    .main {
-      padding: clamp(1.25rem, 4vw, 2.5rem);
-      width: 60%;
-    }
-    
-    .footer {
-      padding-right: clamp(1.25rem, 4vw, 2.5rem);
-      padding-bottom: clamp(1.25rem, 4vw, 2.5rem);
-      align-self: end;
-      margin-left: auto;
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-  <div class="container">
-    <div class="main">
-      <h1 class="title">cuppyzh.dev</h1>
-      <h1><em>coming soon</em></h1>
-      <p>something quiet is being built here.</p>
-    </div>
-    <div class="footer">
-      <p>&copy; 2026 cuppyzh</p>
-    </div>
-  </div>
-</body>
+  <div class="page">
 
+    <header class="site-header container">
+      <a class="brand" href="/" aria-label="cuppyzh.dev home">
+        <span class="seal" lang="ja" aria-hidden="true">シュ</span>
+        <span class="brand__name">cuppyzh.dev</span>
+      </a>
+      <span class="status-pill">
+        <span class="status-pill__dot" aria-hidden="true"></span>
+        <span><span class="jp jp--light" lang="ja">準備中</span> · Under construction</span>
+      </span>
+    </header>
+
+    <main class="hero container">
+      <div class="hero__text">
+        <p class="eyebrow">Open in 2027 (maybe?)</p>
+        <h1 class="hero__title">Coming<br>soon.</h1>
+        <p class="hero__tagline jp" lang="ja">ただいま、準備中です。</p>
+        <p class="hero__lead">Something quiet is being built here.</p>
+      </div>
+
+      <div class="hero__art" aria-hidden="true">
+        <div class="art">
+          <div class="art__disc"></div>
+          <div class="art__ring"></div>
+          <div class="art__kanji" lang="ja">待</div>
+          <div class="art__vertical" lang="ja">近日公開。もう少しだけ。</div>
+        </div>
+      </div>
+
+      <div class="progress" role="progressbar" aria-label="Launch progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70" style="--progress: 70%">
+        <div class="progress__head">
+          <span>Progress</span>
+          <span class="progress__value">...</span>
+        </div>
+        <div class="progress__track"><div class="progress__fill"></div></div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wave" aria-hidden="true"></div>
+      <div class="site-footer__bar">
+        <div class="container site-footer__inner">
+          <nav class="social" aria-label="Social links">
+            <a href="https://github.com/cuppyzh">GitHub</a>
+            <a href="https://instagram.com/koii._.cuppyzh">Instagram</a>
+            <a href="https://linkedin.com/in/cuppyzh">Link
+            <a href="mailto:yapaditama@gmail.com">Email</a>
+          </nav>
+          <p class="copyright">
+            <span>© <span id="year">2026</span> cuppyzh.dev</span>
+            <span class="jp" lang="ja">またね</span>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>

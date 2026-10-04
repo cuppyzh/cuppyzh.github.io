@@ -1,0 +1,354 @@
+/* ==========================================================================
+   cuppyzh.dev — Coming soon
+   Design system: Sumi & Shu (ink, vermilion, paper)
+   ========================================================================== */
+
+:root {
+  /* Colour */
+  --ink: #1C1C1C;
+  --ink-2: #262626;          /* wave texture on ink */
+  --line-dark: #4A4540;      /* hairlines / borders on ink */
+  --vermilion: #B5412C;
+  --paper: #F2EDE4;
+  --mist: #CFC6B8;           /* secondary text on ink */
+  --white: #FFFFFF;
+
+  /* Type */
+  --font-display: 'Shippori Mincho B1', 'Noto Serif JP', serif;
+  --font-body: 'Zen Kaku Gothic New', 'Noto Sans JP', system-ui, sans-serif;
+
+  /* Layout */
+  --container: 1200px;
+  --gutter: clamp(20px, 4vw, 32px);
+  --radius-sm: 2px;
+  --radius-seal: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   Reset
+   -------------------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  font-family: var(--font-body);
+  color: var(--paper);
+  background: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+h1, p { margin: 0; }
+a { color: inherit; }
+a:hover { color: var(--vermilion); }
+a:focus-visible { outline: 2px solid var(--vermilion); outline-offset: 3px; }
+
+/* --------------------------------------------------------------------------
+   Helpers
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+.jp { font-family: var(--font-display); }
+.jp--light { color: var(--white); }
+
+/* Seigaiha (wave) pattern, reused for page texture and footer band */
+.page,
+.wave {
+  --wave-bg: var(--ink);
+  --wave-line: var(--ink-2);
+  background-color: var(--wave-bg);
+  background-image:
+    radial-gradient(circle at 50% 100%, var(--wave-bg) 0 4px, var(--wave-line) 4px 5.5px, var(--wave-bg) 5.5px 9px, var(--wave-line) 9px 10.5px, var(--wave-bg) 10.5px 14px, var(--wave-line) 14px 15.5px, var(--wave-bg) 15.5px 19px, transparent 19.5px),
+    radial-gradient(circle at 50% 100%, var(--wave-bg) 0 4px, var(--wave-line) 4px 5.5px, var(--wave-bg) 5.5px 9px, var(--wave-line) 9px 10.5px, var(--wave-bg) 10.5px 14px, var(--wave-line) 14px 15.5px, var(--wave-bg) 15.5px 19px, transparent 19.5px);
+  background-size: 40px 20px;
+  background-position: 0 0, 20px 10px;
+}
+.wave {
+  --wave-bg: var(--paper);
+  --wave-line: var(--vermilion);
+  height: 20px;
+}
+
+/* --------------------------------------------------------------------------
+   Page shell
+   -------------------------------------------------------------------------- */
+.page {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   Header
+   -------------------------------------------------------------------------- */
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  padding-block: 24px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  text-decoration: none;
+  color: var(--white);
+}
+.brand:hover { color: var(--white); }
+.seal {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-seal);
+  background: var(--vermilion);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+.brand__name {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 34px;
+  padding: 0 14px;
+  border: 1px solid var(--line-dark);
+  border-radius: 17px;
+  font-size: 13px;
+  color: var(--mist);
+}
+.status-pill__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--vermilion);
+}
+
+/* --------------------------------------------------------------------------
+   Hero
+   -------------------------------------------------------------------------- */
+.hero {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  grid-template-areas:
+    "text art"
+    "text progress";
+  align-items: center;
+  column-gap: 56px;
+  row-gap: 8px;
+  padding-block: 40px 72px;
+}
+.hero__text {
+  grid-area: text;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.eyebrow {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mist);
+}
+.hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(64px, 9vw, 104px);
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--white);
+}
+.hero__tagline {
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--vermilion);
+}
+.hero__lead {
+  max-width: 520px;
+  font-size: clamp(16px, 1.4vw, 18px);
+  line-height: 1.75;
+  color: var(--mist);
+}
+
+/* Art: vermilion disc, open brush ring, 待 and vertical phrase */
+.hero__art {
+  grid-area: art;
+  display: flex;
+  justify-content: center;
+}
+.art {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  aspect-ratio: 460 / 440;
+  container-type: inline-size;
+}
+.art__disc,
+.art__kanji {
+  position: absolute;
+  left: 10.87%;
+  top: 9.1%;
+  width: 78.26%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+.art__disc { background: var(--vermilion); }
+.art__ring {
+  position: absolute;
+  left: 4.35%;
+  top: 2.3%;
+  width: 91.3%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 3px solid var(--paper);
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  transform: rotate(-20deg);
+}
+.art__kanji {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 41cqw;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--ink);
+}
+.art__vertical {
+  position: absolute;
+  right: -4px;
+  top: 0;
+  writing-mode: vertical-rl;
+  font-family: var(--font-display);
+  font-size: clamp(14px, 3.9cqw, 18px);
+  letter-spacing: 0.45em;
+  color: var(--paper);
+}
+
+/* Progress */
+.progress {
+  grid-area: progress;
+  width: min(100%, 320px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.progress__head {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mist);
+}
+.progress__value { color: var(--white); }
+.progress__track { height: 4px; background: var(--line-dark); }
+.progress__fill {
+  width: var(--progress, 0%);
+  height: 100%;
+  background: var(--vermilion);
+  transform-origin: left center;
+  animation: fill 1.2s cubic-bezier(.2, .7, .2, 1) both;
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+.site-footer__bar { background: var(--ink); }
+.site-footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 32px;
+  padding-block: 20px 28px;
+}
+.social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 24px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+.social a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--white);
+}
+.social a:hover { color: var(--vermilion); }
+.copyright {
+  display: flex;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--mist);
+}
+
+/* --------------------------------------------------------------------------
+   Motion (subtle, opt-out respected)
+   -------------------------------------------------------------------------- */
+@keyframes fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@keyframes stamp { from { opacity: 0; transform: scale(.94); } to { opacity: 1; transform: none; } }
+
+.hero__text > * { animation: rise .7s cubic-bezier(.2, .7, .2, 1) both; }
+.hero__text > :nth-child(2) { animation-delay: .08s; }
+.hero__text > :nth-child(3) { animation-delay: .16s; }
+.hero__text > :nth-child(4) { animation-delay: .24s; }
+.art { animation: stamp .9s cubic-bezier(.2, .7, .2, 1) .1s both; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; }
+}
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+@media (max-width: 860px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "art"
+      "text"
+      "progress";
+    row-gap: 28px;
+    padding-block: 8px 48px;
+  }
+  .hero__art { justify-content: flex-start; }
+  .art { max-width: 340px; }
+  .hero__text { gap: 18px; }
+}
+
+@media (max-width: 480px) {
+  .site-header { padding-block: 18px; }
+  .seal { width: 34px; height: 34px; font-size: 14px; }
+  .brand__name { font-size: 16px; }
+  .status-pill { height: 30px; padding: 0 12px; font-size: 12px; }
+  .status-pill > span:last-child { font-size: 0; }          /* show only 準備中 */
+  .status-pill .jp { font-size: 12px; }
+  .progress { width: 100%; }
+  .social { gap: 2px 18px; }
+  .social a { min-height: 36px; }
+  .copyright { width: 100%; justify-content: space-between; font-size: 12px; }
+}
